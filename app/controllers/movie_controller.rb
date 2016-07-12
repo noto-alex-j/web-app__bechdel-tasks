@@ -70,3 +70,17 @@ MyApp.get "/movies/:id/view" do
   @movie = Movie.find_by_id(params[:id])
   erb :"movies/view"
 end
+
+MyApp.get "/listall" do
+  @allmovies = Array[]
+  Movie.top_movies_array.each { |x|
+    @movie_details = HTTParty.get("http://www.omdbapi.com/?t=#{x}&y=&plot=short&r=json")
+    @new_movie = Movie.new
+    @new_movie.title = @movie_details["Title"]
+    @new_movie.director = @movie_details["Director"]
+    @new_movie.image = @movie_details["Poster"]
+    @new_movie.save
+    @allmovies.push(@new_movie)
+  }
+  erb :"movies/listall"
+end

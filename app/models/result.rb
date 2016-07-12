@@ -25,6 +25,15 @@ class Result < ActiveRecord::Base
 			return results
 		end
 	end
+
+  def Result.rated
+    results = Result.where({"q1" => !nil})
+    if results.empty?
+      return nil
+    else
+      return results
+    end
+  end
   
  # Checks to see if a Movie object passes the bechdel test
  #

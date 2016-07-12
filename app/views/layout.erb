@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
 
     <title>Bollywood Bechdel</title>
   </head>
@@ -17,7 +18,16 @@
   <div class="container">
     <ul>
       <li>
+        <a href= "/">Home</a>
+      </li>
+      <li>
         <a href="/results/list">Bechdel Gallery</a>
+      </li>
+      <li>
+        <a href= "/results/listrated">Rated Movies</a>
+      </li>
+      <li>
+        <a href= "/listall">Top 100 List</a>
       </li>
 
       <% if @current_user == nil %>
@@ -26,7 +36,7 @@
         </li>
 
         <li class="active">
-          <a href="/login`">Log in</a>
+          <a href="/login">Log in</a>
         </li>
       <% else %>
        	<li class="active">
